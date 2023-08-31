@@ -3,19 +3,6 @@ from employee.forms import EmployeeForm
 from employee.models import Employees
 
 # Create your views here.
-def emp(request):
-    if request.method == "POST":
-        form = EmployeeForm(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('/show')
-            except:
-                pass
-    else:
-                form = EmployeeForm()
-    return render(request, 'index.html', {'form':form})
-
 def show(request):
     employees = Employees.objects.all()
     return render(request, 'show.html', {'contacts': employees})
@@ -49,3 +36,17 @@ def search(request):
     else:
         employee = Employees.objects.none()
     return render(request, 'search.html', {'employee' : employee})
+
+def emp(request):
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/show')
+            except:
+                pass
+    else:
+                form = EmployeeForm()
+    return render(request, 'index.html', {'form':form})
+
