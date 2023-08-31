@@ -31,8 +31,11 @@ def destroy(request, id):
 
 def search(request):
     ename = request.GET.get('ename')
+    econtact = request.GET.get('econtact')
     if ename:
         employee = Employees.objects.filter(emp_name__icontains=ename)
+    elif econtact:
+        employee = Employees.objects.filter(emp_contact__icontains=econtact)
     else:
         employee = Employees.objects.none()
     return render(request, 'search.html', {'employee' : employee})
