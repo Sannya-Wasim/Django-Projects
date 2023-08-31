@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Management System</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css"/>
+</head>
+<body>
+<h1 class="heading">Employee Contact Management System</h1>
+<table border="1">
+    <tr>
+        <th>Serial No.</th>
+        <th>Mobile Number</th>
+        <th>Employee Name</th>
+        <th>Employee Designation</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee.id}}</td>
+        <td>{{employee.member_contact}}</td>
+        <td>{{employee.member_name}}</td>
+        <td>{{employee.member_des}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

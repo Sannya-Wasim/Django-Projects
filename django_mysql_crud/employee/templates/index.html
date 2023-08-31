@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    {% load static %}-->
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+    {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+<h1 class="m-5">Employee Contact Management System</h1>
+    <form method="POST" class="post-form" action="/emp">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Enter Details of Employee</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Employee ID: </label>
+                <div class="col-sm-4">
+                    {{ form.emp_id}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Employee Contact: </label>
+                <div class="col-sm-4">
+                    {{ form.emp_contact}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Employee Name: </label>
+                <div class="col-sm-4">
+                    {{ form.emp_name}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Employee Designation: </label>
+                <div class="col-sm-4">
+                    {{ form.emp_des}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
